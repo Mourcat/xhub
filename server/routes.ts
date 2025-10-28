@@ -75,6 +75,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
       const stories = await storage.getStories();
       res.json(stories);
     } catch (error) {
+      console.error("Error fetching stories:", error);
       res.status(500).json({ error: "Failed to fetch stories" });
     }
   });
@@ -118,6 +119,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
       const articles = await storage.getArticles();
       res.json(articles);
     } catch (error) {
+      console.error("Error fetching articles:", error);
       res.status(500).json({ error: "Failed to fetch articles" });
     }
   });
