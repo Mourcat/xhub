@@ -4,11 +4,7 @@ import { drizzle } from 'drizzle-orm/node-postgres';
 import * as schema from "@shared/schema";
 
 const pool = new Pool({
-  host: 'localhost',
-  port: 5432,
-  database: 'xhub',
-  user: 'postgres',
-  password: 'mour',
+  connectionString: process.env.DATABASE_URL,
 });
 
 export { pool };
