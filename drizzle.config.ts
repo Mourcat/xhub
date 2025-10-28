@@ -8,7 +8,7 @@ export default defineConfig({
   dbCredentials: {
     host: 'localhost',
     port: 5432,
-    database: 'postgres',
+    database: 'xhub',
     user: 'postgres',
     password: 'mour',
   },
