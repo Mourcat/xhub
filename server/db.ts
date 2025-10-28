@@ -1,15 +1,15 @@
-
-import { Pool } from 'pg';
-import { drizzle } from 'drizzle-orm/node-postgres';
+import { Pool, neonConfig } from '@neondatabase/serverless';
+import { drizzle } from 'drizzle-orm/neon-serverless';
+import ws from 'ws';
 import * as schema from "@shared/schema";
 
-const pool = new Pool({
-  host: 'localhost',
-  port: 5433,
-  database: 'postgres',
-  user: 'postgres',
-  password: '1234',
-});
+if (!process.env.DATABASE_URL) {
+  throw new Error('DATABASE_URL environment variable is not set');
+}
+
+neonConfig.webSocketConstructor = ws;
+
+const pool = new Pool({ connectionString: process.env.DATABASE_URL });
 
 export { pool };
 export const db = drizzle(pool, { schema });

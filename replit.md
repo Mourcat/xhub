@@ -4,8 +4,9 @@
 
 A modern social content management platform for creating and sharing four types of content: Stories (Instagram-style ephemeral content), Articles (Medium-style long-form reading), Pictures (Pinterest-style visual content), and Videos (YouTube-style video content). Built as a full-stack TypeScript application with a React frontend and Express backend, featuring a clean, reference-based design system inspired by leading social platforms. Data is persisted in a PostgreSQL database using Drizzle ORM.
 
-## Recent Changes (October 27, 2025)
+## Recent Changes (October 28, 2025)
 
+- Fixed database connection issue by configuring Neon serverless WebSocket constructor for Node.js
 - Implemented complete video upload feature with modern UI including:
   - Drag-and-drop video upload with visual feedback and progress indicators
   - Video preview with automatic duration extraction
@@ -76,6 +77,7 @@ Preferred communication style: Simple, everyday language.
 - DatabaseStorage class implements persistent storage using PostgreSQL
 - Storage abstraction pattern (IStorage interface) allows swapping implementations
 - Database connection managed via Neon serverless driver with connection pooling
+- WebSocket configuration for Neon serverless driver using 'ws' package in Node.js environment
 
 **Error Handling:**
 - Centralized error handling for API responses
